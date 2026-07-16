@@ -22,7 +22,6 @@ class MultiHeadedSelfAttention(nn.Module):
         # Return result rounded to 4 decimal places
         
         concated_scores = torch.concat([head(embedded) for head in self.heads], dim=2)
-        print(self.output_proj(concated_scores).shape)
         return torch.round(self.output_proj(concated_scores), decimals=4)
         
 
